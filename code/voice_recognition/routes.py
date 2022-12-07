@@ -70,7 +70,7 @@ def comparing(file_path):
 def save_record():
     if request.method =='POST':
         file=request.files['AudioFile']
-        file_path='code/voice_recognition/static/assets/recordedAudio.wav'
+        file_path='voice_recognition/static/assets/recordedAudio.wav'
         file.save(os.path.join(file_path))
         scores_1,scores_2,scores_3,scores_4,scores_5,scores_6,scores_7=comparing(file_path)
         print(scores_1)
