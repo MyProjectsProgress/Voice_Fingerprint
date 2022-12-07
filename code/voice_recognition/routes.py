@@ -74,6 +74,7 @@ def save_record():
         print(scores_5)
         print(scores_6)
 
+    return []
 
         # if len(audio.shape)>1:
         #     audio=audio[:,0]
