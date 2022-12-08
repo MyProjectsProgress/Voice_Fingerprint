@@ -3,12 +3,14 @@ from routes import *
 import os
 from wtforms.validators import InputRequired
 import librosa
+# import matplotlib.pyplot as plt
+# import numpy as np
+
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', "POST", "put"])
 def index():
-    dict_sliders = {}
     # if request.method == "POST":
     return render_template('index.html')
 
@@ -18,12 +20,22 @@ def save_record():
         file=request.files['AudioFile']
         file_path='voice_recognition/static/assets/recordedAudio.wav'
         file.save(os.path.join(file_path))
-        scores_1,scores_2,scores_3,scores_4=comparing(file_path)
-        print(scores_1)
-        print(scores_2)
-        print(scores_3)
-        print(scores_4)
-    return '<h1>sucess</h1>'
+        mostafa_score,magdy_score,mayar_score,mina_score=comparing(file_path)
+        print(mostafa_score)
+        print(magdy_score)
+        print(mayar_score)
+        print(mina_score)
+        name = ""
+        if mostafa_score == max(mostafa_score,magdy_score,mayar_score,mina_score):
+            name = "mostafa"
+        elif mina_score == max(mostafa_score,magdy_score,mayar_score,mina_score):
+            name = "mina"
+        elif magdy_score == max(mostafa_score,magdy_score,mayar_score,mina_score):
+            name = "magdy"
+        elif mayar_score == max(mostafa_score,magdy_score,mayar_score,mina_score):
+            name = "mayar"
+
+    return f'<h1>success {name}</h1>'
 
 if __name__ == '__main__':
     app.run(debug=True)
