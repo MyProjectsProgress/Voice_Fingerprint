@@ -1,0 +1,21 @@
+#big-container{
+    position: absolute;
+    top: 40%;
+    left: 39%;
+
+}
+
+
+#small-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#startRecordingButton{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#statement{
+    text-align: center;
+}

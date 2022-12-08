@@ -27,15 +27,15 @@ def save_record():
         print(mina_score)
         name = ""
         if mostafa_score == max(mostafa_score,magdy_score,mayar_score,mina_score):
-            name = "mostafa"
+            name = "Mostafa"
         elif mina_score == max(mostafa_score,magdy_score,mayar_score,mina_score):
-            name = "mina"
+            name = "Mina"
         elif magdy_score == max(mostafa_score,magdy_score,mayar_score,mina_score):
-            name = "magdy"
+            name = "Magdy"
         elif mayar_score == max(mostafa_score,magdy_score,mayar_score,mina_score):
-            name = "mayar"
+            name = "Mayar"
 
-    return f'<h1>success {name}</h1>'
+    return f'<h1 id="statement">Hello {name}</h1>'
 
 if __name__ == '__main__':
     app.run(debug=True)

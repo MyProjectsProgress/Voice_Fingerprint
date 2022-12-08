@@ -223,10 +223,10 @@ def extract_features(file_path):
 
 def comparing(file_path):
     test = extract_features(file_path)
-    call_mostafa_model = pickle.load(open('./models/mostafa.gmm','rb'))
-    call_magdy_model   = pickle.load(open('./models/magdy.gmm','rb'))
-    call_mayar_model   = pickle.load(open('./models/mayar.gmm','rb'))
-    call_mina_model    = pickle.load(open('./models/mina.gmm','rb'))
+    call_mostafa_model = pickle.load(open('voice_recognition/models/mostafa.gmm','rb'))
+    call_magdy_model   = pickle.load(open('voice_recognition/models/magdy.gmm','rb'))
+    call_mayar_model   = pickle.load(open('voice_recognition/models/mayar.gmm','rb'))
+    call_mina_model    = pickle.load(open('voice_recognition/models/mina.gmm','rb'))
 
     scores_1 = np.array(call_mostafa_model.score(test))
     scores_2 = np.array(call_magdy_model.score(test))
