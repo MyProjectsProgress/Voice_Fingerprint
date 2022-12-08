@@ -48,22 +48,18 @@ def extract_features(file_path):
 
 def comparing(file_path):
     test = extract_features(file_path)
-    call_Ahmed_model=pickle.load(open('code/voice_recognition/models/Ahmed.gmm','rb'))
-    call_yahia_model=pickle.load(open('code/voice_recognition/models/mostafa_gmm','rb'))
-    call_mostafa_model=pickle.load(open('code/voice_recognition/models/yahia.gmm','rb'))
+
+    call_mostafa_model=pickle.load(open('code/voice_recognition/models/mostafa.gmm','rb'))
     call_magdy_model=pickle.load(open('code/voice_recognition/models/magdy.gmm','rb'))
-    call_mahmoud_model=pickle.load(open('code/voice_recognition/models/mahmoud_gmm.gmm','rb'))
     call_mayar_model=pickle.load(open('code/voice_recognition/models/mayar.gmm','rb'))
     call_mina_model=pickle.load(open('code/voice_recognition/models/mina.gmm','rb'))
 
-    scores_1 = np.array(call_Ahmed_model.score(test))
-    scores_2 = np.array(call_yahia_model.score(test))
-    scores_3 = np.array(call_mostafa_model.score(test))
-    scores_4 = np.array(call_magdy_model.score(test))
-    scores_5 = np.array(call_mahmoud_model.score(test))
-    scores_6 = np.array(call_mayar_model.score(test))
-    scores_7 = np.array(call_mina_model.score(test))
-    return scores_1,scores_2,scores_3,scores_4,scores_5,scores_6,scores_7
+
+    scores_1 = np.array(call_mostafa_model.score(test))
+    scores_2 = np.array(call_magdy_model.score(test))
+    scores_3 = np.array(call_mayar_model.score(test))
+    scores_4 = np.array(call_mina_model.score(test))
+    return scores_1,scores_2,scores_3,scores_4
 
 
 @app.route('/saveRecord',methods =['POST'])
@@ -72,14 +68,12 @@ def save_record():
         file=request.files['AudioFile']
         file_path='voice_recognition/static/assets/recordedAudio.wav'
         file.save(os.path.join(file_path))
-        scores_1,scores_2,scores_3,scores_4,scores_5,scores_6,scores_7=comparing(file_path)
+        scores_1,scores_2,scores_3,scores_4=comparing(file_path)
         print(scores_1)
         print(scores_2)
         print(scores_3)
         print(scores_4)
-        print(scores_5)
-        print(scores_6)
-        print(scores_7)
+ 
 
         # if 'file' not in request.files:
         #     flash('No file part')
@@ -95,7 +89,6 @@ def save_record():
         # print(full_file_name)
         # file.save(full_file_name)
 
-    return []
 
         # if len(audio.shape)>1:
         #     audio=audio[:,0]
