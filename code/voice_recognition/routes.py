@@ -227,9 +227,11 @@ def comparing(file_path):
     call_magdy_model   = pickle.load(open('voice_recognition/models/magdy.gmm','rb'))
     call_mayar_model   = pickle.load(open('voice_recognition/models/mayar.gmm','rb'))
     call_mina_model    = pickle.load(open('voice_recognition/models/mina.gmm','rb'))
+    call_open_model    = pickle.load(open('voice_recognition/models/open.gmm','rb'))
 
     scores_1 = np.array(call_mostafa_model.score(test))
     scores_2 = np.array(call_magdy_model.score(test))
     scores_3 = np.array(call_mayar_model.score(test))
     scores_4 = np.array(call_mina_model.score(test))
-    return scores_1,scores_2,scores_3,scores_4
+    scores_5 = np.array(call_open_model.score(test))
+    return scores_1,scores_2,scores_3,scores_4,scores_5
