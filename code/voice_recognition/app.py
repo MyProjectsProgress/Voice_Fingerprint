@@ -25,17 +25,17 @@ def save_record():
         print(open_score)
         name = ""
         if mostafa_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
-            name = "Mostafa"
+            name = "Correct Voice Fingerprint, Mostafa"
         elif mina_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
-            name = "Mina"
+            name = "Correct Voice Fingerprint, Mina"
         elif magdy_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
-            name = "Magdy"
+            name = "Correct Voice Fingerprint, Magdy"
         elif mayar_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
-            name = "Mayar"
+            name = "Correct Voice Fingerprint, Mayar"
         elif open_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
-            name = "other"
+            name = "Wrong Voice Fingerprint!"
 
-    return f'<h1 id="statement">Hello {name}</h1>'
+    return f'<h1 id="statement">{name}</h1>'
 
 if __name__ == '__main__':
     app.run(debug=True)
