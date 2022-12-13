@@ -15,24 +15,27 @@ def index():
 def save_record():
     if request.method =='POST':
         file=request.files['AudioFile']
-        file_path='voice_recognition/static/assets/recordedAudio.wav'
+        file_path='static/assets/recordedAudio.wav'
         file.save(os.path.join(file_path))
-        mostafa_score,magdy_score,mayar_score,mina_score,open_score=comparing(file_path)
+        mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score=comparing(file_path)
         print(mostafa_score)
         print(magdy_score)
         print(mayar_score)
         print(mina_score)
-        print(open_score)
+        print(others_score)
+        print(close_score)
         name = ""
-        if mostafa_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
+        if mostafa_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
             name = "Correct Voice Fingerprint, Mostafa"
-        elif mina_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
+        elif mina_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
             name = "Correct Voice Fingerprint, Mina"
-        elif magdy_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
+        elif magdy_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
             name = "Correct Voice Fingerprint, Magdy"
-        elif mayar_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
+        elif mayar_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
             name = "Correct Voice Fingerprint, Mayar"
-        elif open_score == max(mostafa_score,magdy_score,mayar_score,mina_score,open_score):
+        elif others_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
+            name = "Wrong Voice Fingerprint!"
+        elif close_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
             name = "Wrong Voice Fingerprint!"
 
     return f'<h1 id="statement">{name}</h1>'
