@@ -227,14 +227,18 @@ def comparing(file_path):
     call_magdy_model   = pickle.load(open('models/magdy.gmm','rb'))
     call_mayar_model   = pickle.load(open('models/mayar.gmm','rb'))
     call_mina_model    = pickle.load(open('models/mina.gmm','rb'))
-    call_others_model    = pickle.load(open('models/others.gmm','rb'))
-    call_close_model    = pickle.load(open('models/close.gmm','rb'))
+    # call_mostafa_model_close = pickle.load(open('models/mostafa_close.gmm','rb'))
+    # call_magdy_model_close   = pickle.load(open('models/magdy_close.gmm','rb'))
+    # call_mayar_model_close   = pickle.load(open('models/mayar_close.gmm','rb'))
+    # call_mina_model_close    = pickle.load(open('models/mina_close.gmm','rb'))
 
-    scores_1 = np.array(call_mostafa_model.score(test))
-    scores_2 = np.array(call_magdy_model.score(test))
-    scores_3 = np.array(call_mayar_model.score(test))
-    scores_4 = np.array(call_mina_model.score(test))
-    scores_5 = np.array(call_others_model.score(test))
-    scores_6 = np.array(call_close_model.score(test))
+    scores_mostafa = np.array(call_mostafa_model.score(test))
+    scores_magdy = np.array(call_magdy_model.score(test))
+    scores_mayar = np.array(call_mayar_model.score(test)) 
+    scores_mina = np.array(call_mina_model.score(test))
+    # scores_mostafa_close = np.array(call_mostafa_model_close.score(test))
+    # scores_magdy_close = np.array(call_magdy_model_close.score(test))
+    # scores_mayar_close = np.array(call_mayar_model_close.score(test))
+    # scores_mina_close = np.array(call_mina_model_close.score(test))
 
-    return scores_1,scores_2,scores_3,scores_4,scores_5,scores_6
+    return scores_mostafa,scores_magdy,scores_mayar,scores_mina

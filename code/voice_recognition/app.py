@@ -17,26 +17,25 @@ def save_record():
         file=request.files['AudioFile']
         file_path='static/assets/recordedAudio.wav'
         file.save(os.path.join(file_path))
-        mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score=comparing(file_path)
-        print(mostafa_score)
-        print(magdy_score)
-        print(mayar_score)
-        print(mina_score)
-        print(others_score)
-        print(close_score)
+        scores_mostafa,scores_magdy,scores_mayar,scores_mina=comparing(file_path)
+        print("Mostafa", scores_mostafa)
+        print("Magdy",scores_magdy)
+        print("Mayar",scores_mayar)
+        print("Mina",scores_mina)
+        
+        max_score = max(scores_mostafa,scores_magdy,scores_mayar,scores_mina)
         name = ""
-        if mostafa_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
-            name = "Correct Voice Fingerprint, Mostafa"
-        elif mina_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
-            name = "Correct Voice Fingerprint, Mina"
-        elif magdy_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
-            name = "Correct Voice Fingerprint, Magdy"
-        elif mayar_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
-            name = "Correct Voice Fingerprint, Mayar"
-        elif others_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
+        if(max_score < -30):
             name = "Wrong Voice Fingerprint!"
-        elif close_score == max(mostafa_score,magdy_score,mayar_score,mina_score,others_score,close_score):
-            name = "Wrong Voice Fingerprint!"
+        else:
+            if scores_mostafa == max_score:
+                name = "Correct Voice Fingerprint, Mostafa"
+            elif scores_magdy == max_score:
+                name = "Correct Voice Fingerprint, Magdy"
+            elif scores_mayar == max_score:
+                name = "Correct Voice Fingerprint, Mayar"
+            elif scores_mina == max_score:
+                name = "Correct Voice Fingerprint, Mina"
 
     return f'<h1 id="statement">{name}</h1>'
 
