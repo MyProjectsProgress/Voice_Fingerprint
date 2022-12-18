@@ -3,6 +3,7 @@ from routes import *
 import os
 from wtforms.validators import InputRequired
 import librosa
+import json
 
 app = Flask(__name__)
 
@@ -36,8 +37,9 @@ def save_record():
                 name = "Correct Voice Fingerprint, Mayar"
             elif scores_mina == max_score:
                 name = "Correct Voice Fingerprint, Mina"
-
-    return f'<h1 id="statement">{name}</h1>'
+        path_img_bar = barchart(2**scores_mina, 2**scores_magdy, 2**scores_mayar, 2**scores_mostafa,2**(-30))
+        path_img_spect = plot_spectro()
+    return json.dumps({0: f'<h1 id="statement">{name}</h1>', 1: f'<img src="{path_img_bar}" alt="Girl in a jacket" width="500" height="600">', 2: f'<img src="{path_img_spect}" alt="Girl in a jacket" width="500" height="600">'})
 
 if __name__ == '__main__':
     app.run(debug=True)

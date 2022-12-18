@@ -1,21 +1,87 @@
-#big-container{
-    position: absolute;
-    top: 40%;
-    left: 39%;
 
+body {
+	min-height: 100vh;
+}
+#body_container{
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+}
+#big-container{
+	display: flex;
+    flex-direction: column;
+	justify-content: center;
+	/* align-items: center; */
+	width: 66%;
 }
 
 
 #small-container{
     display: flex;
     flex-direction: column;
-}
-
-#startRecordingButton{
-    margin-top: 10px;
-    margin-bottom: 20px;
+	justify-content: center;
+	align-items: center;
+	width: 34%;
+	min-height: 100vh;
 }
 
 #statement{
     text-align: center;
 }
+
+#recButton {
+	width: 35px;
+	height: 35px;
+	font-size: 0;
+	background-color: red;
+	border: 0;
+	border-radius: 35px;
+	margin: 18px;
+	outline: none;
+
+	
+}
+
+.notRec{
+	background-color: darkred;
+}
+
+.Rec{
+	animation-name: pulse;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0px 0px 5px 0px rgba(173,0,0,.3);
+	}
+	65%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,.3);
+	}
+	90%{
+		box-shadow: 0px 0px 5px 13px rgba(173,0,0,0);
+	}
+}
+
+#waveform{
+	margin-left: 5%;
+}
+
+#play_button{
+	width: 50%;
+}
+
+#images_container{
+	display: flex;
+	flex-direction: row;
+}
+img{
+	width: 500px;
+	height: 400px;
+	margin: 0px;
+}
+body {
+	overflow: hidden; /* Hide scrollbars */
+  }

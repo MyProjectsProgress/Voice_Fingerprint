@@ -7,6 +7,8 @@ import librosa.display
 import numpy
 from python_speech_features import sigproc
 from scipy.fftpack import dct
+import matplotlib.pyplot as plt
+import random
 
 def mfcc(signal,samplerate=16000,winlen=0.025,winstep=0.01,numcep=13,
         nfilt=26,nfft=512,lowfreq=0,highfreq=None,preemph=0.97,ceplifter=22,appendEnergy=True,
@@ -242,3 +244,36 @@ def comparing(file_path):
     # scores_mina_close = np.array(call_mina_model_close.score(test))
 
     return scores_mostafa,scores_magdy,scores_mayar,scores_mina
+
+
+def barchart(mina_score, magdy_score, mayar_score, mostafa_score, other_score):
+    data = {'mina': mina_score, 'magdy': magdy_score, 'mayar': mayar_score,
+            'mostafa': mostafa_score, "others": other_score}
+    courses = list(data.keys())
+    values = list(data.values())
+
+    fig = plt.figure(figsize=(10, 5))
+
+    # creating the bar plot
+    plt.bar(courses, values, color='maroon',
+            width=0.4)
+    plt.xlabel("our team")
+    plt.ylabel("No. of students enrolled")
+    plt.title("Students enrolled in different courses")
+    path = f'./static/img/barchart{random.randint(1,10000)}.jpg'
+    plt.savefig(path)
+    plt.close()
+    return path
+
+
+def plot_spectro():
+    original_audio = "./static/assets/recordedAudio.wav"
+    y1, sr = librosa.load(original_audio)
+    D1 = librosa.stft(y1)             # STFT of y
+    S_db1 = librosa.amplitude_to_db(np.abs(D1), ref=np.max)
+    fig = plt.figure(figsize=[15, 8])
+    img1 = librosa.display.specshow(S_db1, x_axis='time', y_axis='linear')
+    path = f'./static/img/spectrogram{random.randint(1,10000)}.jpg'
+    plt.savefig(path)
+    plt.close()
+    return path
