@@ -1,29 +1,56 @@
-# Voice_Fingerprint
+# Voice Fingerprint 
 
-## downloadMultiprocessing.py
+## Table of Contents
 
-> This python file can help you to download the .cdf files from official website. Besides, to speedup the whole process, you may raise the `processess`. `download_dataset, data_name, min_version and max_version` can help you specify the file you want to download.
+- [Description](#description)
+- [Features](#features)
+- [Technology Used](#technology-used)
+- [Project Demo](#project-demo)
+## Description 
+A web application used for voice Recognition (voice password). The system depends on speech, thus an authorized individual must speak the proper sentence. Team Members 
+are only given the authority to "Open the door" in our application.
 
-## preparingData.py
+## Features 
+- The web opens when just one of the team members say "open the door", otherwise it doesn't open.
 
-> The time-related data should have long enough time to demonstrate its features. Thus, this file can that you concatenate the .cdf files in to one and return one numerical equivalent .npy files. You can also using `key` to choose the features you (or your research interested.)
+- The Web can recognize whether the said word is correct or not and if correct it detects who said it and show his or her name.
 
-## prepocessing.py
+- After saying the passwored, a variety of graphs are appeared giving information about the voice like the score after comparing the voice to the stored teams' voices, Spectrogram of the voice and a cluster graph of the used machine learning model.
 
-> Due to there's lots of uncertainty when collecting data in space. People usually do some tricks to avoid the result be distorted when the data contain some noise or some unreasonable value. Then this file is what we designed for dealing with it. The method include data smoothening such as SMA or EMA or estimating the similarity between data. Plus, DSCOVR/mag, Wind/mfi and Wind/swe have different time resolution, we also adjust in this file.
+- Resize: The application can be resized easily without messing up your UI.
 
-## model1 & model2
+## Technology Used:
+The Web Application is built using:
+- Front-end
+  - JavaScript
+  - CSS
+  - PlotlyJS
+  - CanvasJS
+- Backend:
+  - Flask (Python)
+- Models:
+  - GMM (Gaussian Mixture Models)
 
-> This algorithm can predict the Proton (solar wind ion) density, thermal speed, and velocity vector (n, w, v) from DSCOVR/mag Magnetic Field Data Sets information. The simplified pipeline will be descripted below.
->
-> ### model1
->
-> > First, using DSCOVR/mag data to predict Wind/mfi data since they both detect magnetic field data and have some complicated time-related, position-related relation.
->
-> ### model2
->
-> > Secondly, using Wind/mfi data to predict Wind/swe data (n, w, v.) Very simple and clear.
+## Project Demo
 
-## model3
+## Screenshots
+![voice 1](https://user-images.githubusercontent.com/90320433/215307740-027d2b38-0b50-46fe-93d2-f8544cd4738d.png)
+![voice 2](https://user-images.githubusercontent.com/90320433/215307745-33f3931d-7202-4e3e-b026-42454fc977fc.png)
+![Voice 3](https://user-images.githubusercontent.com/90320433/215307749-68c2d723-50d7-4efa-92b8-4d3b7c23e522.png)
 
-> We found that DST (Disturbance Storm Time) is somehow related to solar storm. "A negative Dst value means that Earth's magnetic field is weakened. This is particularly the case during solar storms." from Wikipedia said. Thus, we want to use DSCOVR/mag magnetic field data to forecast the probability of the extreme solar storm.
+## Made by:
+
+| Name                           | Section | BN  |
+| ------------------------------ | ------- | --- |
+| [Mayar Ehab](https://github.com/mayarehab)          | 2       | 41 |
+| [Mina Safwat](https://github.com/mena5800)          | 2       | 44 |
+| [Magdy Nasr](https://github.com/MyProjectsProgress) | 2       | 15 |
+| [Mostafa Mahmoud](https://github.com/Mosmahmoud)    | 2       | 37 |
+
+- Course Name : Digital Signal Processing .
+
+## Submitted to:
+
+- Dr. Tamer Basha & Eng. Abdullah Darwish
+
+All rights reserved © 2022 to Team 8 - Systems & Biomedical Engineering, Cairo University (Class 2024)
