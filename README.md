@@ -5,7 +5,7 @@
 - [Description](#description)
 - [Features](#features)
 - [Technology Used](#technology-used)
-- [Project Demo](#project-demo)
+- [Screenshots](#Screenshots)
 ## Description 
 A web application used for voice Recognition (voice password). The system depends on speech, thus an authorized individual must speak the proper sentence. Team Members 
 are only given the authority to "Open the door" in our application.
@@ -30,8 +30,6 @@ The Web Application is built using:
   - Flask (Python)
 - Models:
   - GMM (Gaussian Mixture Models)
-
-## Project Demo
 
 ## Screenshots
 ![voice 1](https://user-images.githubusercontent.com/90320433/215307740-027d2b38-0b50-46fe-93d2-f8544cd4738d.png)
